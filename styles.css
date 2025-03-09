@@ -1,0 +1,704 @@
+/* 主題變數 */
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #4a90e2;
+    --dark-bg: #1a1a1a;
+    --light-bg: #ffffff;
+    --card-bg-dark: #2a2a2a;
+    --card-bg-light: #f5f5f5;
+    --transition-speed: 0.3s;
+}
+
+/* General Styles */
+body {
+    transition: background-color 0.3s ease;
+    background-color: var(--light-bg);
+    color: #333;
+}
+
+[data-theme="dark"] {
+    background-color: var(--dark-bg);
+    color: #fff;
+}
+
+[data-theme="light"] {
+    background-color: var(--light-bg);
+    color: #333;
+}
+
+/* Header 樣式 */
+.header {
+    background: var(--bg-secondary);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.brand p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* 控制項包裝器 */
+.controls-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 搜尋控制項 */
+.search-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-box {
+    position: relative;
+    min-width: 200px;
+}
+
+.search-box .input-group {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.search-box .form-control {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+}
+
+.search-box .input-group-text {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding-right: 1rem;
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+    background: var(--bg-primary);
+}
+
+/* 過濾器組 */
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-group .form-select {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* 設置控制項 */
+.settings-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-controls .form-select {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .controls-wrapper {
+        gap: 1rem;
+    }
+
+    .search-box {
+        min-width: 180px;
+    }
+
+    .filter-group .form-select,
+    .settings-controls .form-select {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .controls-wrapper {
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-controls {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .filter-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .settings-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-group .form-select,
+    .settings-controls .form-select {
+        flex: 1;
+    }
+}
+
+/* Header 控制項 */
+.header-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Nav Styles */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+/* Member Cards */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.member-badges {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.team-logo {
+    height: 35px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.member-info {
+    padding: 1rem;
+    text-align: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4),
+        var(--card-bg)
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-height: 180px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.member-name-container {
+    width: 100%;
+    max-width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.member-name {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    display: inline-block;
+    transform-origin: center;
+    transform: scale(var(--text-scale, 1));
+}
+
+.member-name[data-length="long"] {
+    --text-scale: 0.7;
+}
+
+.member-name[data-length="very-long"] {
+    --text-scale: 0.6;
+}
+
+.member-title {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.social-link.youtube:hover {
+    background-color: #ff0000;
+}
+
+.social-link.x-twitter:hover {
+    background-color: #1da1f2;
+}
+
+.social-link.profile-link:hover {
+    background-color: #9c27b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .member-card {
+        width: 260px;
+        height: 520px;
+    }
+
+    .member-name {
+        font-size: 1.3rem;
+    }
+}
+
+/* Section Styles */
+.group-intro {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.intro-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.division-section {
+    text-align: center;
+    padding: 2rem 0;
+    margin: 2rem auto;
+    max-width: 1600px;
+}
+
+.division-section h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.team-section {
+    margin: 4rem auto;
+    padding: 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 4rem;
+}
+
+.team-section:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.team-header h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.team-logo-large {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .group-intro {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    .intro-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .division-section h2 {
+        font-size: 2rem;
+    }
+
+    .team-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .team-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .team-logo-large {
+        height: 50px;
+    }
+}
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.1)
+    );
+}
+
+footer p {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 成員卡片懸停效果 */
+.member-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* 搜尋和過濾區域樣式 */
+.search-filter-section {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.input-group-text {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.form-select, .form-control {
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb), 0.25);
+}
+
+/* 直播狀態指示器動畫 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 直播狀態樣式 */
+.live-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+    border: 2px solid #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.live-status.live {
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.live-status.live .status-indicator {
+    background-color: #ff0000;
+    animation: pulse 2s infinite;
+}
+
+.live-text {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: none;
+}
+
+.live-status.live .live-text {
+    color: #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    display: inline-block;
+}
+
+.offline-text {
+    display: inline-block;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.live-status.live .offline-text {
+    display: none;
+}
+
+/* 響應式優化 */
+@media (max-width: 768px) {
+    .header-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .search-filter-section {
+        padding: 1rem;
+    }
+
+    .social-share-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .social-share-section .btn {
+        margin: 0 !important;
+        width: 100%;
+    }
+}
+
+/* 動畫效果 */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading 動畫 */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSPO! - Virtual eSports Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="brand">
+                <h1>VSPO!</h1>
+                <p data-i18n="headerDesc">Virtual eSports Project</p>
+            </div>
+            
+            <div class="controls-wrapper">
+                <div class="search-controls">
+                    <div class="search-box">
+                        <div class="input-group">
+                            <input type="text" id="memberSearch" class="form-control" placeholder="搜尋成員...">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <select id="teamFilter" class="form-select">
+                            <option value="all">所有團隊</option>
+                            <option value="lvg">Lupinus Virtual Games</option>
+                            <option value="ibg">Iris Black Games</option>
+                        </select>
+                        <select id="statusFilter" class="form-select">
+                            <option value="all">所有狀態</option>
+                            <option value="live">正在直播</option>
+                            <option value="offline">未直播</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-controls">
+                    <select id="themeSelect" class="form-select">
+                        <option value="dark">暗色主題</option>
+                        <option value="light">亮色主題</option>
+                        <option value="sepia">復古主題</option>
+                        <option value="gaming">遊戲主題</option>
+                    </select>
+                    <select id="languageSelect" class="form-select">
+                        <option value="ja">日本語</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#jp-division" class="nav-link" data-i18n="nav.jpDivision">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-text">日本部</span>
+                </a>
+                <a href="#en-division" class="nav-link" data-i18n="nav.enDivision">
+                    <span class="nav-icon">🌏</span>
+                    <span class="nav-text">英語部</span>
+                </a>
+                <a href="#cn-division" class="nav-link" data-i18n="nav.cnDivision">
+                    <span class="nav-icon">🌏</span>
+                    <span class="nav-text">中文部</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <section class="group-intro my-5">
+            <div class="intro-content p-4 rounded bg-light text-dark" data-i18n="groupIntro">
+                VSPO!是一個次世代虛擬電子競技企劃，希望將認真對待遊戲的成員們聚集在一起，傳播電子競技的優點。
+                目前以VTuber直播、參與電競大賽、動畫和漫畫等多種媒體形式進行活動。
+            </div>
+        </section>
+
+        <section id="jp-division" class="division-section">
+            <h2 data-i18n="jpDivision.title">日本部</h2>
+            <div class="team-section">
+                <div class="team-header">
+                    <h3>Lupinus Virtual Games</h3>
+                    <img src="./assets/LVG-logo.webp" alt="LVG-logo" class="team-logo-large">
+                </div>
+                <div class="members-grid">
+                    <div class="member-card" data-team="lvg" data-member="sumire" data-live="false">
+                        <div class="member-card-inner">
+                            <div class="live-status">
+                                <span class="status-indicator"></span>
+                                <span class="live-text">LIVE</span>
+                                <span class="offline-text">OFFLINE</span>
+                            </div>
+                            <div class="member-banner">
+                                <div class="member-image-wrapper">
+                                    <img src="./assets/sd-sumire-1.webp" alt="花芽すみれ" class="member-image">
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-container">
+                                    <h2 class="member-name">花芽すみれ</h2>
+                                </div>
+                                <div class="member-title">2018年出道</div>
+                                <div class="social-links">
+                                    <a href="https://www.youtube.com/@nazunakaga" target="_blank" class="social-link youtube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://twitter.com/sumire_kaga" target="_blank" class="social-link x-twitter">
+                                        <i class="fa-brands fa-x"></i>
+                                    </a>
+                                    <a href="member-profile.html?id=sumire" class="social-link profile-link">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 花芽なずな -->
+                    <div class="member-card" data-team="lvg" data-member="nazuna" data-live="false">
+                        <div class="member-card-inner">
+                            <div class="live-status">
+                                <span class="status-indicator"></span>
+                                <span class="live-text">LIVE</span>
+                                <span class="offline-text">OFFLINE</span>
+                            </div>
+                            <div class="member-banner">
+                                <div class="member-image-wrapper">
+                                    <img src="./assets/sd-nazuna-1.webp" alt="花芽なずな" class="member-image">
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-container">
+                                    <h2 class="member-name">花芽なずな</h2>
+                                </div>
+                                <div class="member-title">2018年出道</div>
+                                <div class="social-links">
+                                    <a href="https://www.youtube.com/@nazunakaga" target="_blank" class="social-link youtube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://twitter.com/nazuna_kaga" target="_blank" class="social-link x-twitter">
+                                        <i class="fa-brands fa-x"></i>
+                                    </a>
+                                    <a href="member-profile.html?id=nazuna" class="social-link profile-link">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 一ノ瀬うるは -->
+                    <div class="member-card" data-team="lvg" data-member="uruha" data-live="false">
+                        <div class="member-card-inner">
+                            <div class="live-status">
+                                <span class="status-indicator"></span>
+                                <span class="live-text">LIVE</span>
+                                <span class="offline-text">OFFLINE</span>
+                            </div>
+                            <div class="member-banner">
+                                <div class="member-image-wrapper">
+                                    <img src="./assets/sd-uruha-1.webp" alt="一ノ瀬うるは" class="member-image">
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-container">
+                                    <h2 class="member-name">一ノ瀬うるは</h2>
+                                </div>
+                                <div class="member-title">2019年出道</div>
+                                <div class="social-links">
+                                    <a href="https://www.youtube.com/@uruha_ichinose" target="_blank" class="social-link youtube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://twitter.com/uruha_ichinose" target="_blank" class="social-link x-twitter">
+                                        <i class="fa-brands fa-x"></i>
+                                    </a>
+                                    <a href="member-profile.html?id=uruha" class="social-link profile-link">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 小雀とと -->
+                    <div class="member-card" data-team="lvg" data-member="toto" data-live="false">
+                        <div class="member-card-inner">
+                            <div class="live-status">
+                                <span class="status-indicator"></span>
+                                <span class="live-text">LIVE</span>
+                                <span class="offline-text">OFFLINE</span>
+                            </div>
+                            <div class="member-banner">
+                                <div class="member-image-wrapper">
+                                    <img src="./assets/sd-toto-1.webp" alt="小雀とと" class="member-image">
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name-container">
+                                    <h2 class="member-name">小雀とと</h2>
+                                </div>
+                                <div class="member-title">2019年出道</div>
+                                <div class="social-links">
+                                    <a href="https://www.youtube.com/@totokogara" target="_blank" class="social-link youtube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://twitter.com/toto_kogara" target="_blank" class="social-link x-twitter">
+                                        <i class="fa-brands fa-x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IBG Section -->
+        <div class="team-section">
+            <div class="team-header">
+                <h3>Iris Black Games</h3>
+                <img src="./assets/IBG-logo.webp" alt="IBG-logo" class="team-logo-large">
+            </div>
+            <div class="members-grid">
+                <!-- 胡桃のあ -->
+                <div class="member-card" data-team="ibg" data-member="noa" data-live="false">
+                    <div class="member-card-inner">
+                        <div class="live-status">
+                            <span class="status-indicator"></span>
+                            <span class="live-text">LIVE</span>
+                            <span class="offline-text">OFFLINE</span>
+                        </div>
+                        <div class="member-banner">
+                            <div class="member-image-wrapper">
+                                <img src="./assets/sd-noah-1.webp" alt="胡桃のあ" class="member-image">
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <div class="member-name-container">
+                                <h2 class="member-name">胡桃のあ</h2>
+                            </div>
+                            <div class="member-title">2020年3月出道</div>
+                            <div class="social-links">
+                                <a href="https://www.youtube.com/@963Noah" target="_blank" class="social-link youtube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://twitter.com/kurumi_noa" target="_blank" class="social-link x-twitter">
+                                    <i class="fa-brands fa-x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 橘ひなの -->
+                <div class="member-card" data-team="ibg" data-member="hinano" data-live="false">
+                    <!-- 類似結構 -->
+                </div>
+
+                <!-- 如月れん -->
+                <div class="member-card" data-team="ibg" data-member="ren" data-live="false">
+                    <!-- 類似結構 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- CRG Section -->
+        <div class="team-section">
+            <div class="team-header">
+                <h3>Cattleya Regina Games</h3>
+                <img src="./assets/CRG-logo.webp" alt="CRG-logo" class="team-logo-large">
+            </div>
+            <div class="members-grid">
+                <!-- 成員卡片 -->
+            </div>
+        </div>
+
+        <!-- Other Members Section -->
+        <div class="team-section">
+            <div class="team-header">
+                <h3>其他成員</h3>
+            </div>
+            <div class="members-grid">
+                <!-- 成員卡片 -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p> 2025 VSPO! Fan Page</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="translations.js"></script>
+    <script src="member-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
