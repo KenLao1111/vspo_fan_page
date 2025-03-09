@@ -23,7 +23,7 @@ const scheduleLoading = document.getElementById('scheduleLoading');
 const galleryContainer = document.getElementById('galleryContainer');
 
 // YouTube API Key
-const API_KEY = 'AIzaSyDYYbYgBB-L4mkInEiDmcMWHqK1FJMvDB8';
+const API_KEY = '';
 
 // Constants
 const CACHE_VERSION = 1;

@@ -7,7 +7,7 @@ const teamFilter = document.getElementById('teamFilter');
 const statusFilter = document.getElementById('statusFilter');
 
 // YouTube API Key
-const API_KEY = 'AIzaSyDYYbYgBB-L4mkInEiDmcMWHqK1FJMvDB8';
+const API_KEY = '';
 
 // Constants
 const CACHE_VERSION = 1;
